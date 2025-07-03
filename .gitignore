@@ -1,0 +1,14 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtuální prostředí
+env/
+venv/
+.venv/
+
+# VS Code config (volitelné)
+.vscode/
+
+# Citlivé proměnné
+.env
