@@ -2,6 +2,8 @@ import os
 import json
 from dotenv import load_dotenv
 from openai import OpenAI
+from langgraph.graph import StateGraph, END
+from langgraph.prebuilt import ToolExecutor
 
 #načtení enviromentálních proměnných
 load_dotenv()
@@ -41,7 +43,7 @@ messages = [
 
 # Požadavek na model – AI si sama vybere nástroj
 response = client.chat.completions.create(
-    model="gpt-3.5-turbo",
+    model="gpt-4.1-mini",
     messages=messages,
     tools=tools,
     tool_choice={"type": "function", "function": {"name": "add_numbers"}}
@@ -65,7 +67,7 @@ messages.append({
 })
 
 final_response = client.chat.completions.create(
-    model="gpt-3.5-turbo",
+    model="gpt-4.1-mini",
     messages=messages
 )
 
